@@ -82,7 +82,7 @@ do {
         /* Tarea 3 */
 
 
- let cantidad_apariciones = new Array(13).fill(0);
+ /* let cantidad_apariciones = new Array(13).fill(0);
 
         function randomizador() {
             cantidad_apariciones = new Array(13).fill(0);
@@ -115,4 +115,121 @@ do {
                 table_body.appendChild(row);
             }
         }
-        randomizador();
+        randomizador(); */
+
+    function numero_par_impar(numero) {
+  if (numero % 2 === 0) {
+    return "El número es par.";
+  } else {
+    return "El número es impar.";
+  }
+}
+function numero_entrada(){
+
+  let entrada = prompt("Ingrese un número entero:");
+  
+  
+  if (entrada === null || entrada === "") {
+    alert("No ingresaste ningún valor.");
+  } 
+  
+  else if (isNaN(entrada)) {
+    alert("Error: Debes ingresar un número válido.");
+  } 
+  
+  else if (!Number.isInteger(Number(entrada))) {
+    alert("Error: Debes ingresar un número entero (sin decimales).");
+  } 
+  
+  else {
+    let numero = Number(entrada);
+    let resultado = numero_par_impar(numero);
+    alert(resultado);
+  }
+}
+
+
+function analizar_cadena(texto) {
+  if (texto === texto.toUpperCase() && texto === texto.toLowerCase()) {
+    return "La cadena no contiene letras.";
+  } else if (texto === texto.toUpperCase()) {
+    return "La cadena está formada solo por mayusculas.";
+  } else if (texto === texto.toLowerCase()) {
+    return "La cadena está formada solo por minúsculas.";
+  } else {
+    return "La cadena está formada por una mezcla de mayúsculas y minúsculas.";
+  }
+}
+function text_chain(){
+
+  let cadena_texto = prompt("Ingrese una cadena de texto:");
+  
+  if (cadena_texto === null || cadena_texto === "") {
+    alert("No ingresaste ningún texto.");
+  } else {
+    let resultado = analizar_cadena(cadena_texto);
+    alert(resultado);
+  }
+}
+
+
+function calcularPerimetroRectangulo() {
+  let lado1 = prompt("Ingrese el valor del primer lado del rectángulo: ");
+  let lado2 = prompt("Ingrese el valor del segundo lado del rectángulo: ");
+  
+  if (lado1 === null || lado1 === "" || lado2 === null || lado2 === "") {
+    alert("No ingresaste ningún valor.");
+    return;
+  }
+
+  if (isNaN(lado1) || isNaN(lado2)) {
+    alert("Error: Debes ingresar números válidos.");
+    return;
+  }
+
+  lado1 = Number(lado1);
+  lado2 = Number(lado2);
+
+  if (!Number.isInteger(lado1) || !Number.isInteger(lado2)) {
+    alert("Error: Debes ingresar números enteros (sin decimales).");
+    return;
+  }
+
+  if (lado1 <= 0 || lado2 <= 0) {
+    alert("Error: Los lados deben ser mayores a cero.");
+    return;
+  }
+
+  let perimetro = 2 * (lado1 + lado2);
+  alert(`El perímetro del rectángulo es: ${perimetro}`);
+}
+
+function crear_tabla_multiplicar(numero) {
+    let tabla = "==============================\n";
+    tabla += `Tabla de multiplicar del ${numero}\n`;
+    tabla += "==============================\n\n";
+    
+    for (let i = 1; i <= 10; i++) {
+        const resultado = numero * i;
+        tabla += `${numero} x ${i} = ${resultado}\n`;
+    }
+    
+    tabla += "\n==============================";
+    
+    return tabla;
+}
+
+function resultado(){
+
+  const entrada = prompt("Ingrese un número para ver su tabla de multiplicar:");
+  
+  const numero = parseInt(entrada);
+  
+  if (isNaN(numero)) {
+      alert("Error: Por favor ingrese un número válido.");
+  } else {
+      const tabla = crear_tabla_multiplicar(numero);
+      alert(tabla);
+  }
+}
+resultado()
